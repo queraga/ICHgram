@@ -1,0 +1,23 @@
+# Dependencies
+
+**/node_modules
+
+# Environment
+
+**/.env
+
+# Logs
+
+*.log
+
+# macOS
+
+.DS_Store
+
+# VS Code
+
+.vscode
+
+# Build
+
+dist
