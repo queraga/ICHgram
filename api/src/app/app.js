@@ -16,6 +16,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use("/api/posts", commentRoutes);
 app.use("/api/comments", commentLikeRoutes);
+app.use("/uploads", express.static("uploads"));
 
 app.get("/", (req, res) => {
   res.send("Instagram clone API is running");

@@ -3,13 +3,15 @@ import { Comment } from "../../../entities/comment/model/Comment.js";
 
 export const createPost = async (req, res) => {
   try {
-    const { imageUrl, caption } = req.body;
+    const { caption } = req.body;
 
-    if (!imageUrl) {
+    if (!req.file) {
       return res.status(400).json({
-        message: "Image URL is required",
+        message: "Post image is required",
       });
     }
+
+    const imageUrl = `/uploads/posts/${req.file.filename}`;
 
     const post = await Post.create({
       author: req.user.userId,
