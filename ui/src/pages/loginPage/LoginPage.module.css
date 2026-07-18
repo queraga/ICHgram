@@ -1,0 +1,102 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.previewImage {
+  width: 410px;
+  display: block;
+}
+
+.authColumn {
+  width: 350px;
+}
+
+.loginCard,
+.signupCard {
+  border: 1px solid #dbdbdb;
+  background: #fff;
+}
+
+.loginCard {
+  padding: 40px;
+  text-align: center;
+}
+
+.logo {
+  width: 180px;
+  margin-bottom: 35px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #dbdbdb;
+  background: #fafafa;
+  border-radius: 3px;
+}
+
+.loginButton {
+  margin-top: 8px;
+  width: 100%;
+  padding: 9px;
+  border: none;
+  border-radius: 8px;
+  background: #0095f6;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 22px 0;
+  font-size: 15px;
+  color: #737373;
+  font-weight: 600;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #dbdbdb;
+}
+
+.forgotPassword {
+  font-size: 16px;
+  text-decoration: none;
+  color: #00376b;
+}
+
+.signupCard {
+  margin-top: 12px;
+  padding: 16px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.signupLink {
+  color: #0095f6;
+  text-decoration: none;
+  font-weight: 600;
+}
