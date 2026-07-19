@@ -206,9 +206,9 @@ export const updateAvatar = async (req, res) => {
       });
     }
 
-    const avatarUrl = `/uploads/avatars/${req.file.filename}`;
-
+    user.avatarUrl = `/uploads/avatars/${req.file.filename}`;
     await user.save();
+
     res.status(200).json({
       message: "Avatar updated successfully",
       avatarUrl: user.avatarUrl,

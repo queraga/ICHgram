@@ -1,0 +1,76 @@
+.profilePage {
+  width: 900px;
+  margin: 40px auto;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 72px;
+  margin-bottom: 60px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileInfo {
+  flex: 1;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.topRow h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.topRow button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 24px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.stats {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 18px;
+  font-size: 13px;
+}
+
+.profileInfo p {
+  margin: 5px 0;
+  font-size: 13px;
+}
+
+.profileInfo a {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #00376b;
+  text-decoration: none;
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.posts img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}

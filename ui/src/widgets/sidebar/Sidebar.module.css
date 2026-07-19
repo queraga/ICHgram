@@ -1,0 +1,63 @@
+.sidebar {
+  width: 236px;
+  min-height: 100vh;
+  padding: 42px 24px 32px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid #dbdbdb;
+  background: #fff;
+
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 48px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  width: 100%;
+  padding: 0;
+
+  border: none;
+  background: none;
+
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.link svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
+
+.profile {
+  margin-top: 72px;
+}
+
+.avatar {
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+  border: 1px solid #dbdbdb;
+
+  background: #f5f5f5;
+}

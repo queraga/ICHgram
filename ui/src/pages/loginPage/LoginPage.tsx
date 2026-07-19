@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./LoginPage.module.css";
 import { loginUser } from "../../features/auth/api/authApi.ts";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { login } from "../../features/auth/model/authSlice.ts";
 
 export function LoginPage() {
@@ -9,6 +10,7 @@ export function LoginPage() {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -19,6 +21,7 @@ export function LoginPage() {
         password,
       });
       dispatch(login(data.token));
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
