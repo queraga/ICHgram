@@ -1,0 +1,104 @@
+.editPage {
+  max-width: 610px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.editPage h1 {
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+
+.userCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 12px;
+  margin-bottom: 28px;
+}
+
+.userCard img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userCard div {
+  flex: 1;
+}
+
+.userCard strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.userCard p {
+  margin: 0;
+  color: #737373;
+  font-size: 14px;
+}
+
+.userCard button {
+  border: none;
+  background: #0095f6;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editPage label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.editPage input,
+.editPage textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font: inherit;
+  outline: none;
+}
+
+.editPage input:focus,
+.editPage textarea:focus {
+  border-color: #a8a8a8;
+}
+
+.editPage textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.editPage label span {
+  align-self: flex-end;
+  font-size: 12px;
+  color: #737373;
+  font-weight: 400;
+}
+
+.saveButton {
+  width: 100%;
+  border: none;
+  background: #0095f6;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveButton:hover,
+.userCard button:hover {
+  opacity: 0.9;
+}

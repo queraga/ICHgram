@@ -5,6 +5,7 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { AppLayout } from "../layout/AppLayout";
 import { ProfilePage } from "../../pages/profilePage/ProfilePage";
 import { UserProfilePage } from "../../pages/userProfilePage/UserProfilePage";
+import { EditProfilePage } from "../../pages/editProfilePage/EditProfilePage";
 
 export function AppRouter() {
   return (
@@ -23,6 +24,7 @@ export function AppRouter() {
 
           {/* <Route path="/explore" element={<ExplorePage />} /> */}
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/edit" element={<EditProfilePage />} />
           <Route path="/profile/:userId" element={<UserProfilePage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />

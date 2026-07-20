@@ -4,10 +4,13 @@ import type { User } from "../../entities/user/model/types";
 import type { Post } from "../../entities/post/model/types";
 import { API_URL } from "../../shared/config/api";
 import styles from "./ProfilePage.module.css";
+import { useNavigate } from "react-router-dom";
 
 export function ProfilePage() {
   const [user, setUser] = useState<User | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getMe().then(setUser);
@@ -31,7 +34,12 @@ export function ProfilePage() {
           <div className={styles.topRow}>
             <h2>{user.username}</h2>
 
-            <button className={styles.editButton}>Edit profile</button>
+            <button
+              className={styles.editButton}
+              onClick={() => navigate("/profile/edit")}
+            >
+              Edit profile
+            </button>
           </div>
 
           <div className={styles.stats}>

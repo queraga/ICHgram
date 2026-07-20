@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getUserById, getUserPosts } from "../../entities/user/api/userApi";
+import {
+  getUserById,
+  getUserPosts,
+  toggleFollow,
+} from "../../entities/user/api/userApi";
 import type { User } from "../../entities/user/model/types";
 import type { Post } from "../../entities/post/model/types";
 import styles from "./UserProfilePage.module.css";
@@ -28,6 +32,24 @@ export function UserProfilePage() {
     getUserPosts(userId).then(setPosts);
   }, [userId]);
 
+  const handleFollow = async () => {
+    if (!userId) return;
+
+    await toggleFollow(userId);
+
+    setProfileData((prev) => {
+      if (!prev) return prev;
+
+      return {
+        ...prev,
+        isFollowing: !prev.isFollowing,
+        followersCount: prev.isFollowing
+          ? prev.followersCount - 1
+          : prev.followersCount + 1,
+      };
+    });
+  };
+
   if (!profileData) {
     return <div>Loading...</div>;
   }
@@ -45,7 +67,7 @@ export function UserProfilePage() {
           <div className={styles.topRow}>
             <h2>{profileData.user.username}</h2>
 
-            <button className={styles.followButton}>
+            <button className={styles.followButton} onClick={handleFollow}>
               {profileData.isFollowing ? "Unfollow" : "Follow"}
             </button>
 
