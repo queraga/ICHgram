@@ -5,10 +5,12 @@ import type { Post } from "../../entities/post/model/types";
 import { API_URL } from "../../shared/config/api";
 import styles from "./ProfilePage.module.css";
 import { useNavigate } from "react-router-dom";
+import { PostModal } from "../../widgets/postModal/PostModal";
 
 export function ProfilePage() {
   const [user, setUser] = useState<User | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
 
   const navigate = useNavigate();
 
@@ -58,13 +60,22 @@ export function ProfilePage() {
 
       <div className={styles.posts}>
         {posts.map((post) => (
-          <img
+          <button
             key={post._id}
-            src={`${API_URL}${post.imageUrl}`}
-            alt={post.caption}
-          />
+            className={styles.postButton}
+            onClick={() => setSelectedPost(post)}
+          >
+            <img src={`${API_URL}${post.imageUrl}`} alt={post.caption} />
+          </button>
         ))}
       </div>
+      {selectedPost && (
+        <PostModal
+          post={selectedPost}
+          user={user}
+          onClose={() => setSelectedPost(null)}
+        />
+      )}
     </div>
   );
 }

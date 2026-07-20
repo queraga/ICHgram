@@ -1,0 +1,32 @@
+.footer {
+  margin-top: 80px;
+  padding: 40px 24px 60px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 36px;
+}
+
+.nav a {
+  color: #737373;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  color: #000;
+}
+
+.footer p {
+  margin: 0;
+  color: #8e8e8e;
+  font-size: 14px;
+}
