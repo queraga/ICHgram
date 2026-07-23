@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Post } from "../../entities/post/model/types";
+import type { Post, PostAuthor } from "../../entities/post/model/types";
 import type { User } from "../../entities/user/model/types";
 import { API_URL } from "../../shared/config/api";
 import styles from "./PostModal.module.css";
@@ -19,7 +19,7 @@ import { Heart, MessageCircle } from "lucide-react";
 
 type PostModalProps = {
   post: Post;
-  user: User;
+  user: PostAuthor;
   currentUser: User;
   onClose: () => void;
   onDelete?: (postId: string) => void;
