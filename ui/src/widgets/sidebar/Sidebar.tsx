@@ -9,12 +9,23 @@ import {
 } from "lucide-react";
 
 import styles from "./Sidebar.module.css";
+import { useState, useEffect } from "react";
+import { getMe } from "../../entities/user/api/userApi";
+import type { User } from "../../entities/user/model/types";
+import { API_URL } from "../../shared/config/api";
 
 type SidebarProps = {
   onSearchClick: () => void;
+  onCreateClick: () => void;
 };
 
-export function Sidebar({ onSearchClick }: SidebarProps) {
+export function Sidebar({ onSearchClick, onCreateClick }: SidebarProps) {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    getMe().then(setUser);
+  }, []);
+
   return (
     <aside className={styles.sidebar}>
       <img className={styles.logo} src="/logo/ichgramLogo.svg" alt="ICHgram" />
@@ -45,14 +56,22 @@ export function Sidebar({ onSearchClick }: SidebarProps) {
           <span>Notifications</span>
         </NavLink>
 
-        <NavLink to="/create" className={styles.link}>
+        <button type="button" className={styles.link} onClick={onCreateClick}>
           <SquarePlus />
           <span>Create</span>
-        </NavLink>
+        </button>
       </nav>
 
       <NavLink to="/profile" className={`${styles.link} ${styles.profile}`}>
-        <div className={styles.avatar} />
+        {user?.avatarUrl ? (
+          <img
+            className={styles.avatar}
+            src={`${API_URL}${user.avatarUrl}`}
+            alt={user.username}
+          />
+        ) : (
+          <div className={styles.avatar} />
+        )}
         <span>Profile</span>
       </NavLink>
     </aside>

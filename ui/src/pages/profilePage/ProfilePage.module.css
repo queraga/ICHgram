@@ -65,26 +65,21 @@
 .posts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-}
-
-.posts img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  display: block;
+  gap: 8px;
 }
 
 .postButton {
-  border: none;
+  aspect-ratio: 1;
   padding: 0;
-  background: none;
+  border: none;
+  background: transparent;
+  overflow: hidden;
   cursor: pointer;
 }
 
 .postButton img {
   width: 100%;
-  display: block;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }

@@ -73,7 +73,12 @@ export function ProfilePage() {
         <PostModal
           post={selectedPost}
           user={user}
+          currentUser={user}
           onClose={() => setSelectedPost(null)}
+          onDelete={(postId) => {
+            setPosts((prev) => prev.filter((post) => post._id !== postId));
+            setSelectedPost(null);
+          }}
         />
       )}
     </div>

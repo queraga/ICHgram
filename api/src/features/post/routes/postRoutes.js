@@ -7,6 +7,7 @@ import {
   toggleLike,
   updatePost,
   deletePost,
+  getFeedPosts,
 } from "../controller/postController.js";
 import { uploadPostImage } from "../../../shared/middleware/uploadMiddleware.js";
 
@@ -14,6 +15,7 @@ const router = express.Router();
 
 router.post("/", authMiddleware, uploadPostImage.single("image"), createPost);
 router.get("/", authMiddleware, getPosts);
+router.get("/feed", authMiddleware, getFeedPosts);
 router.patch("/:postId/like", authMiddleware, toggleLike);
 router.get("/:postId", authMiddleware, getPostById);
 router.patch("/:postId", authMiddleware, updatePost);

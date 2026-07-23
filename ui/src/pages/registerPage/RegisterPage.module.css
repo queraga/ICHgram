@@ -1,0 +1,85 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.wrapper {
+  width: 350px;
+}
+
+.card,
+.loginCard {
+  border: 1px solid #dbdbdb;
+  background: white;
+}
+
+.card {
+  padding: 40px;
+  text-align: center;
+}
+
+.logo {
+  width: 180px;
+  margin-bottom: 24px;
+}
+
+.card h2 {
+  margin-bottom: 28px;
+  font-size: 17px;
+  color: #737373;
+}
+
+.card input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  padding: 10px;
+
+  border: 1px solid #dbdbdb;
+  background: #fafafa;
+  border-radius: 3px;
+}
+
+.info {
+  font-size: 12px;
+  line-height: 16px;
+  color: #737373;
+}
+
+.info span {
+  color: #00376b;
+}
+
+.registerButton {
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #0095f6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.loginCard {
+  margin-top: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.loginCard a {
+  margin-left: 6px;
+  color: #0095f6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.error {
+  color: #ed4956;
+  font-size: 13px;
+}

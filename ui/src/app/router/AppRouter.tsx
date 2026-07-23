@@ -7,13 +7,14 @@ import { ProfilePage } from "../../pages/profilePage/ProfilePage";
 import { UserProfilePage } from "../../pages/userProfilePage/UserProfilePage";
 import { EditProfilePage } from "../../pages/editProfilePage/EditProfilePage";
 import { ExplorePage } from "../../pages/explorePage/ExplorePage";
+import { RegisterPage } from "../../pages/registerPage/RegisterPage";
 
 export function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        {/* <Route path="/register" element={<RegisterPage />} /> */}
+        <Route path="/register" element={<RegisterPage />} />
         <Route
           element={
             <ProtectedRoute>

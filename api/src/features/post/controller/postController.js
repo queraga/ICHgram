@@ -1,5 +1,6 @@
 import { Post } from "../../../entities/post/model/Post.js";
 import { Comment } from "../../../entities/comment/model/Comment.js";
+import { User } from "../../../entities/user/model/User.js";
 
 export const createPost = async (req, res) => {
   try {
@@ -170,6 +171,34 @@ export const deletePost = async (req, res) => {
 
     res.status(200).json({
       message: "Post deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+export const getFeedPosts = async (req, res) => {
+  try {
+    const currentUser = await User.findById(req.user.userId);
+    console.log("USER:", currentUser);
+    console.log("FOLLOWING:", currentUser.following);
+
+    if (!currentUser) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    const posts = await Post.find({
+      author: { $in: currentUser.following },
+    })
+      .populate("author", "username fullName avatarUrl")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      posts,
     });
   } catch (error) {
     res.status(500).json({

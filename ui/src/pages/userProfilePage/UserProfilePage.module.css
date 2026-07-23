@@ -66,8 +66,18 @@
   gap: 3px;
 }
 
+.postButton {
+  aspect-ratio: 1;
+  padding: 0;
+  border: none;
+  background: transparent;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .postImage {
   width: 100%;
-  aspect-ratio: 1;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }

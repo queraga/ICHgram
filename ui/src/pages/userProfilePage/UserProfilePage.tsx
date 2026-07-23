@@ -5,11 +5,13 @@ import {
   getUserById,
   getUserPosts,
   toggleFollow,
+  getMe,
 } from "../../entities/user/api/userApi";
 import type { User } from "../../entities/user/model/types";
 import type { Post } from "../../entities/post/model/types";
 import styles from "./UserProfilePage.module.css";
 import { API_URL } from "../../shared/config/api";
+import { PostModal } from "../../widgets/postModal/PostModal";
 
 type UserProfileData = {
   user: User;
@@ -24,6 +26,12 @@ export function UserProfilePage() {
   const [profileData, setProfileData] = useState<UserProfileData | null>(null);
 
   const [posts, setPosts] = useState<Post[]>([]);
+  const [selectedPost, setSelectedPost] = useState<Post | null>(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    getMe().then(setCurrentUser);
+  }, []);
 
   useEffect(() => {
     if (!userId) return;
@@ -108,14 +116,27 @@ export function UserProfilePage() {
 
       <div className={styles.postsGrid}>
         {posts.map((post) => (
-          <img
+          <button
             key={post._id}
-            src={`${API_URL}${post.imageUrl}`}
-            alt=""
-            className={styles.postImage}
-          />
+            className={styles.postButton}
+            onClick={() => setSelectedPost(post)}
+          >
+            <img
+              src={`${API_URL}${post.imageUrl}`}
+              alt={post.caption}
+              className={styles.postImage}
+            />
+          </button>
         ))}
       </div>
+      {selectedPost && currentUser && (
+        <PostModal
+          post={selectedPost}
+          user={profileData.user}
+          currentUser={currentUser}
+          onClose={() => setSelectedPost(null)}
+        />
+      )}
     </div>
   );
 }

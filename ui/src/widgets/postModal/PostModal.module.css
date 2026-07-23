@@ -2,11 +2,9 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   z-index: 1000;
 }
 
@@ -18,12 +16,15 @@
   grid-template-columns: 1.5fr 1fr;
 
   background: white;
+  overflow: hidden;
 }
 
 .modalImage {
   width: 100%;
   height: 100%;
+  min-height: 0;
   object-fit: cover;
+  display: block;
 }
 
 .modalContent {
@@ -35,7 +36,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 16px;
   border-bottom: 1px solid #dbdbdb;
 }
@@ -64,4 +64,126 @@
   display: flex;
   gap: 8px;
   padding: 16px;
+}
+
+.comments {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.commentAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.commentContent {
+  flex: 1;
+}
+
+.commentContent > div {
+  display: flex;
+  gap: 6px;
+}
+
+.commentLikes {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #737373;
+}
+
+.commentLikeButton {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.postActions {
+  padding: 14px 16px 12px;
+  border-top: 1px solid #dbdbdb;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.actionButtons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.addComment {
+  display: flex;
+  border-top: 1px solid #dbdbdb;
+  padding: 12px 16px;
+}
+
+.addComment input {
+  flex: 1;
+  border: none;
+  outline: none;
+}
+
+.addComment button {
+  border: none;
+  background: none;
+  color: #0095f6;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editCaption {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex: 1;
+}
+
+.editCaption textarea {
+  flex: 1;
+  min-height: 64px;
+  padding: 8px 10px;
+
+  font: inherit;
+  resize: none;
+
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  outline: none;
+}
+
+.editCaption textarea:focus {
+  border-color: #a8a8a8;
+}
+
+.editCaption button {
+  border: none;
+  background: none;
+  padding: 8px 0;
+
+  color: #0095f6;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.editCaption button:hover {
+  color: #00376b;
 }
