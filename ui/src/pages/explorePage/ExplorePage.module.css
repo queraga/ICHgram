@@ -21,3 +21,11 @@
 .image:hover {
   opacity: 0.9;
 }
+
+.postButton {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+}
